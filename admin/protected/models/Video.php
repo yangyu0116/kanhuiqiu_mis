@@ -68,8 +68,6 @@ class Video extends CActiveRecord {
             'url' => '视频url',
             'urlmd5' => 'urlmd5',
             'pic' => '图片url',
-            'year' => '年份',
-            'date' => '日期',
             'addtime' => '入库时间',
             'site' => '站点'
         );
@@ -100,8 +98,6 @@ class Video extends CActiveRecord {
         $criteria->compare('url', $this->url);
         $criteria->compare('urlmd5', $this->urlmd5);
         $criteria->compare('pic', $this->pic);
-        $criteria->compare('year', $this->year);
-        $criteria->compare('date', $this->date, true);
         $criteria->compare('addtime', $this->addtime, true);
         $criteria->compare('site', $this->site, true);
 
