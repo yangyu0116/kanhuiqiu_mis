@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: wangjianzhou
- * Date: 13-4-27
- * Time: 下午6:09
- * To change this template use File | Settings | File Templates.
- */
 class TokenizeFromServer
 {
     private static $port=11080;
@@ -33,4 +26,3 @@ class TokenizeFromServer
         return json_decode($result);
     }
 }
-var_dump(TokenizeFromServer::tokenize("天生好胜的麦一敏被公司裁员后，无意中发现大妗姐（意为：结婚时专门侍候新娘的人）这个行业工作简单兼收入可观，便一心向金牌大妗姐庄思甜拜师学艺"));

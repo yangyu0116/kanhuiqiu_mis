@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: wangjianzhou
- * Date: 12-12-13
- * Time: 下午12:33
- * To change this template use File | Settings | File Templates.
- */
 require_once("RedisConnect.php");
 class RedisDAL
 {

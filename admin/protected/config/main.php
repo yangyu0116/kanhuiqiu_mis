@@ -39,10 +39,10 @@ return array(
         'db' => array(
             'class' => 'application.extensions.PHPPDO.CPdoDbConnection',
             'pdoClass' => 'PHPPDO',
-            'connectionString' => $_SERVER['HOSTNAME']=='jx-vs-video05.jx.baidu.com' ? 'mysql:host=10.65.22.108:3306;dbname=kanhuiqiu' : 'mysql:host=localhost;dbname=kanhuiqiu',
+            'connectionString' => $_SERVER['HOSTNAME']=='admin.kanhuiqiu.com' ? 'mysql:host=127.0.0.1:3306;dbname=kanhuiqiu' : 'mysql:host=127.0.0.1;dbname=kanhuiqiu',
             'emulatePrepare' => true,
-            'username' => $_SERVER['HOSTNAME']=='jx-vs-video05.jx.baidu.com' ? 'root' : 'root',
-            'password' => $_SERVER['HOSTNAME']=='jx-vs-video05.jx.baidu.com' ? '111111' : '111111',
+            'username' => $_SERVER['HOSTNAME']=='admin.kanhuiqiu.com' ? 'video' : 'video',
+            'password' => $_SERVER['HOSTNAME']=='admin.kanhuiqiu.com' ? 'video' : 'video',
             'charset' => 'utf8',
         ),
         'errorHandler' => array(
