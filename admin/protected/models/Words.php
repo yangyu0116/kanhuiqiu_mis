@@ -1,62 +1,60 @@
 <?php
 
 /**
- * This is the model class for table "tbl_genome_keyword".
+ * This is the model class for table "tbl_words".
  *
- * The followings are the available columns in table 'tbl_genome_keyword':
+ * The followings are the available columns in table 'tbl_words':
  * @property integer $id
- * @property integer $genome_id
- * @property string $keyword
- * @property string $tokenize_type
+ * @property integer $id
+ * @property string $word
+ * @property string $samewords
  */
-class GenomeKeyword extends CActiveRecord {
+class Words extends CActiveRecord {
 
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
 
     public function tableName() {
-        return 'tbl_genome_keyword';
+        return 'tbl_words';
     }
 
     public function rules() {
         return array(
-            array('keyword', 'required'),
-            array('genome_id', 'numerical', 'integerOnly' => true),
-            array('keyword', 'length', 'max' => 20),
-            array('tokenize_type', 'length', 'max' => 10),
-            array('id, genome_id, keyword, tokenize_type', 'safe', 'on' => 'search'),
+            array('id', 'numerical', 'integerOnly' => true),
+            array('word', 'length', 'max' => 10),
+            array('samewords', 'length', 'max' => 100),
+          //  array('id, word, samewords', 'safe', 'on' => 'search'),
         );
     }
 
     public function relations() {
         return array(
-            'genome' => array(self::BELONGS_TO, 'Genome', 'genome_id'),
+            'genome' => array(self::BELONGS_TO, 'Genome', 'id'),
         );
     }
 
     public function attributeLabels() {
         return array(
             'id' => 'ID',
-            'genome_id' => '基因ID',
-            'keyword' => '关键字',
-            'tokenize_type' => '关键字类型',
+            'word' => '关键字',
+            'samewords' => '关键字类型',
         );
     }
 
     public function getVideoId() {
-        $keywords = array();
-        $arrLogicAnd = explode('&&', $this->keyword);
+        $words = array();
+        $arrLogicAnd = explode('&&', $this->word);
         foreach ($arrLogicAnd as $logicAnd) {
-            $keywords[] = explode('||', $logicAnd);
+            $words[] = explode('||', $logicAnd);
         }
 
         // logic OR operation
         $vidIntersect = array();
-        foreach ($keywords as $val) {
+        foreach ($words as $val) {
             $vid = array();
             foreach ($val as $v) {
-                $ret = Yii::app()->db->createCommand("select video_id from tbl_video_tokenize where keyword='" . $v . "'")->queryColumn();
+                $ret = Yii::app()->db->createCommand("select video_id from tbl_video_tokenize where word='" . $v . "'")->queryColumn();
                 $vid = array_merge($vid, $ret);
             }
             $vidIntersect[] = $vid;
@@ -75,9 +73,8 @@ class GenomeKeyword extends CActiveRecord {
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id);
-        $criteria->compare('genome_id', $this->genome_id);
-        $criteria->compare('keyword', $this->keyword);
-        $criteria->compare('tokenize_type', $this->tokenize_type);
+        $criteria->compare('word', $this->word);
+        $criteria->compare('samewords', $this->samewords);
 
         return new CActiveDataProvider($this, array(
                     'criteria' => $criteria,
@@ -94,10 +91,9 @@ class GenomeKeyword extends CActiveRecord {
 
         $criteria = new CDbCriteria;
 
-        $criteria->compare('id', $this->id);
-        $criteria->compare('genome_id', $id);
-        $criteria->compare('keyword', $this->keyword);
-        $criteria->compare('tokenize_type', $this->tokenize_type);
+        $criteria->compare('id', $id);
+        $criteria->compare('word', $this->word);
+        $criteria->compare('samewords', $this->samewords);
 
         return new CActiveDataProvider($this, array(
                     'criteria' => $criteria,

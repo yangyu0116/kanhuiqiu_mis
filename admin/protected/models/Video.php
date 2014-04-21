@@ -48,7 +48,7 @@ class Video extends CActiveRecord {
             //array('id, title, url, urlmd5, pic, year, date, addtime, site'),
             //array('source, pub_date, play_nums, site_id, duration, channel_id, add_time, flag, final_score, comments_num, update_time', 'numerical', 'integerOnly' => true),
             array('title', 'length', 'max' => 300),
-            //array('simg_url, tags, limg_url, mimg_url', 'length', 'max' => 500),
+            array('createtime', 'default', 'value' => date('Y-m-d H:i:s')),
             //array('source_detail_link, source_list_link, swf_link', 'length', 'max' => 200),
             //array('video_id, video_title, simg_url, pub_date, play_nums, site_id, tags, source_detail_link, source_list_link, swf_link, duration, channel_id, add_time, flag, final_score, limg_url, mimg_url, comments_num, update_time', 'safe', 'on' => 'search'),
         );
@@ -65,9 +65,11 @@ class Video extends CActiveRecord {
         return array(
             'id' => 'ID',
             'title' => '标题',
+			'type' => '类型',
             'url' => '视频url',
             'urlmd5' => 'urlmd5',
             'pic' => '图片url',
+			'createtime' => '发布时间',
             'addtime' => '入库时间',
             'site' => '站点'
         );

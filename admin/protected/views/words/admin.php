@@ -8,20 +8,18 @@ $this->menu = array(
 
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
-    'id' => 'genome-keyword-grid',
+    'id' => 'word-grid',
     'dataProvider' => $model->search(),
     'filter' => $model,
     'columns' => array(
         'id',
-        'genome_id',
+        'word',
         array(
-            'value' => 'isset($data->genome) ? $data->genome->title_chs : "N/A"',
+            'value' => 'isset($data->samewords) ? $data->samewords : "N/A"',
             'htmlOptions' => array(
                 'width' => '25%',
             ),
         ), 
-        'keyword',
-        'tokenize_type',
         array(
             'class' => 'CButtonColumn',
         ),

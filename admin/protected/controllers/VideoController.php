@@ -14,7 +14,7 @@ class VideoController extends Controller {
     public function accessRules() {
         return array(
             array('allow',
-                'actions' => array('view', 'create', 'update', 'updateFlag', 'siteAPI', 'admin', 'delete'),
+                'actions' => array('view', 'create', 'update', 'admin', 'delete'),
                 'users' => array('yangyu'),
             ),
 			array('allow',
@@ -124,7 +124,7 @@ class VideoController extends Controller {
     }
 
     public function loadModel($id) {
-        $model = ShortVideoMeta::model()->findByPk($id);
+        $model = Video::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;

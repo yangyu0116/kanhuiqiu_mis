@@ -4,19 +4,29 @@ $this->layout = '//layouts/column2';
 $this->menu=array(
 	array('label'=>'添加短视频', 'url'=>array('create')),
 	array('label'=>'更新该视频', 'url'=>array('update', 'id'=>$model->id)),
-    array('label'=>'查看站点API', 'url'=>array('siteAPI', 'url'=>$model->source_detail_link), 'linkOptions'=>array('target'=>'_blank')),
+    array('label'=>'查看站点API', 'url'=>array('siteAPI', 'url'=>$model->url), 'linkOptions'=>array('target'=>'_blank')),
     array('label'=>'重新处理视频图片', 'url'=>array('updateFlag', 'id'=>$model->id)),
 	array('label'=>'删除该视频', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 );
+
 ?>
 
-<h1>短视频 #<?php echo $model->id; ?> <?php echo $model->video_title; ?></h1>
+<h1>短视频 #<?php echo $model->id; ?> <?php echo $model->title; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
 		'title',
+		'type',
+		'url',
+		'pic',
+		array(
+            'name' => 'createtime',
+            'value' => date('Y-m-d H:i:s', $model->createtime),
+        ),
+		'addtime',
+		'site',
 		/*
 		'simg_url',
 		'pub_date',
@@ -55,19 +65,23 @@ $this->menu=array(
 
 <?php
     echo "<br/><h4>原始图片</h4>";
-    echo CHtml::image($model->simg_url);
+    echo CHtml::image($model->pic);
+	/*
     if ($model->flag && $model->limg_url) {
         echo "<br/><br/><h4>处理后图片</h4>";
         echo CHtml::image($model->limg_url, 'image');
     }
+	*/
 ?>
-
+<!--
 <br/>
 <br/>
 <br/>
 <h3>分词结果</h3>
+-->
 
 <?php
+/*
 $tokenize = new VideoTokenize();
 $this->widget('zii.widgets.grid.CGridView', array(
     'id' => 'video-tokenize-grid',
@@ -101,4 +115,5 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
     ),
 ));
+*/
 ?>

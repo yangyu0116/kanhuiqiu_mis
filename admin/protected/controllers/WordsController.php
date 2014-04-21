@@ -1,6 +1,6 @@
 <?php
 
-class GenomeKeywordController extends Controller {
+class WordsController extends Controller {
 
     public $layout = '//layouts/column2';
 
@@ -15,7 +15,7 @@ class GenomeKeywordController extends Controller {
         return array(
             array('allow',
                 'actions' => array('admin', 'delete', 'create', 'update'),
-                'users' => array('admin'),
+                'users' => array('yangyu'),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
@@ -24,10 +24,10 @@ class GenomeKeywordController extends Controller {
     }
 
     public function actionCreate() {
-        $model = new GenomeKeyword;
+        $model = new Words;
 
-        if (isset($_POST['GenomeKeyword'])) {
-            $model->attributes = $_POST['GenomeKeyword'];
+        if (isset($_POST['Words'])) {
+            $model->attributes = $_POST['Words'];
             if ($model->save())
                 $this->redirect(array('admin'));
         }
@@ -40,8 +40,8 @@ class GenomeKeywordController extends Controller {
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
 
-        if (isset($_POST['GenomeKeyword'])) {
-            $model->attributes = $_POST['GenomeKeyword'];
+        if (isset($_POST['Words'])) {
+            $model->attributes = $_POST['Words'];
             if ($model->save())
                 $this->redirect(array('admin'));
         }
@@ -60,10 +60,10 @@ class GenomeKeywordController extends Controller {
     }
 
     public function actionAdmin() {
-        $model = new GenomeKeyword('search');
+        $model = new Words('search');
         $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['GenomeKeyword']))
-            $model->attributes = $_GET['GenomeKeyword'];
+        if (isset($_GET['Words']))
+            $model->attributes = $_GET['Words'];
 
         $this->render('admin', array(
             'model' => $model,
@@ -71,7 +71,7 @@ class GenomeKeywordController extends Controller {
     }
 
     public function loadModel($id) {
-        $model = GenomeKeyword::model()->findByPk($id);
+        $model = Words::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;

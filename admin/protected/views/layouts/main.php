@@ -33,7 +33,7 @@
                         array('label' => '视频管理', 'url' => array('/video/admin')),
                         array('label' => '球员管理', 'url' => array('/player/admin')),
                         array('label' => '球队管理', 'url' => array('/team/admin')),
-                        array('label' => '关键字对应关系', 'url' => array('/keywords/admin')),
+                        array('label' => '分词/同义词管理', 'url' => array('/words/admin')),
                        // array('label' => '热门关键字', 'url' => array('/stats/topKeywords')),
                        // array('label' => '视频播放次数', 'url' => array('/stats/avgPlayNum')),
                        // array('label' => '分词结果', 'url' => array('/videoTokenize/admin')),
