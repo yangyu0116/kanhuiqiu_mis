@@ -63,13 +63,6 @@ class CrontabCommand extends CConsoleCommand {
         // channels to import
         $channels = array(
             "ftp://m1-video-preview0.m1.baidu.com:/home/video/mis/video_index_2.txt" => 'remen',
-            "ftp://m1-video-preview0.m1.baidu.com:/home/video/mis/video_index_7-2.txt" => 'yinyue',
-            "ftp://m1-video-preview0.m1.baidu.com:/home/video/mis/video_index_7-3.txt" => 'gaoxiao',
-            "ftp://m1-video-preview0.m1.baidu.com:/home/video/mis/video_index_7-4.txt" => 'meinv',
-            "ftp://m1-video-preview0.m1.baidu.com:/home/video/mis/video_index_7-5.txt" => 'yule',
-            "ftp://m1-video-preview0.m1.baidu.com:/home/video/mis/video_index_7-6.txt" => 'zixun',
-            "ftp://m1-video-preview0.m1.baidu.com:/home/video/mis/video_index_7-7.txt" => 'tiyu',
-            "ftp://m1-video-preview0.m1.baidu.com:/home/video/mis/video_index_7-8.txt" => 'youxi',
         );
         foreach ($channels as $file_url=>$channel_py) {
             if ($channel_id = Yii::app()->db->createCommand("select channel_id from tbl_channel where title_py='$channel_py'")->queryScalar()) {

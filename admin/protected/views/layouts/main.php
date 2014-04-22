@@ -58,7 +58,7 @@
             <div class="clear"></div>
 
             <div id="footer">
-                Copyright &copy; <?php echo date('Y'); ?> by Baidu.<br/>
+                Copyright &copy; <?php echo date('Y'); ?> by Kanhuiqiu.<br/>
                 All Rights Reserved.<br/>
             </div><!-- footer -->
 

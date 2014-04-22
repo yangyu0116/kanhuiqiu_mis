@@ -1,10 +1,10 @@
 <?php
 $this->menu = array(
-    array('label' => '添加基因关键字关系', 'url' => array('create')),
+    array('label' => '添加关键字关系', 'url' => array('create')),
 );
 ?>
 
-<h1>管理基因关键字关系</h1>
+<h1>管理关键字关系</h1>
 
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(

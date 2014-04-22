@@ -37,8 +37,8 @@ class Words extends CActiveRecord {
     public function attributeLabels() {
         return array(
             'id' => 'ID',
-            'word' => '关键字',
-            'samewords' => '关键字类型',
+            'word' => '分词',
+            'samewords' => '同义词',
         );
     }
 

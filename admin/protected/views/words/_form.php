@@ -1,28 +1,28 @@
 <div class="form wide">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'genome-keyword-form',
+	'id'=>'word-form',
 	'enableAjaxValidation'=>false,
 )); ?>
 
 	<?php echo $form->errorSummary($model); ?>
-
+<!--
 	<div class="row">
-		<?php echo $form->labelEx($model,'genome_id'); ?>
-        <?php echo $form->textField($model,'genome_id',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'genome_id'); ?>
+		<?php echo $form->labelEx($model,'id'); ?>
+        <?php echo $form->textField($model,'id',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->error($model,'id'); ?>
+	</div>
+-->
+	<div class="row">
+		<?php echo $form->labelEx($model,'word'); ?>
+		<?php echo $form->textField($model,'word',array('size'=>20,'maxlength'=>20)); ?>
+		<?php echo $form->error($model,'word'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'keyword'); ?>
-		<?php echo $form->textField($model,'keyword',array('size'=>20,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'keyword'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'tokenize_type'); ?>
-		<?php echo $form->textField($model,'tokenize_type',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'tokenize_type'); ?>
+		<?php echo $form->labelEx($model,'samewords'); ?>
+		<?php echo $form->textField($model,'samewords',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->error($model,'samewords'); ?>
 	</div>
 
 	<div class="row buttons">
