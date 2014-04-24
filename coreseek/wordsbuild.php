@@ -5,6 +5,13 @@ mysql_select_db('kanhuiqiu');
 mysql_query('set names utf8');
 
 
+$count = mysql_fetch_assoc(mysql_query('SELECT count(*) as count FROM tbl_words'));
+$words_count = file_get_contents('words_count.txt');
+if ($words_count == $count['count']){
+	exit;
+}
+
+
 $sql = "SELECT word,samewords FROM tbl_words ORDER BY id DESC ";
 
 $query = mysql_query($sql);
