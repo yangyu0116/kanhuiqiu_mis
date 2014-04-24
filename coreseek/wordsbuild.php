@@ -29,17 +29,16 @@ while ($rt = mysql_fetch_assoc($query)){
 			$tmp_seq .= $rt['samewords'].$separator;
 		}
 	}
-
-	$tmp_sameword = build_sameword($rt['word'].','.$rt['samewords']);
-
+	$tmp_sameword = empty($rt['samewords']) ? '' : build_sameword($rt['word'].','.$rt['samewords']);
 
 	$segmentation_data .= $tmp_seq;
 	$sameword_data .= $tmp_sameword;
 }
 
-write_over('nba.txt', $segmentation_data);
-write_over('thesaurus.txt', $sameword_data);
+write_over('/home/video/coreseek/nba.txt', $segmentation_data);
+write_over('/home/video/coreseek/thesaurus.txt', $sameword_data);
 
+write_over('/home/video/coreseek/words_count.txt', $count['count']);
 
 //复写文件
 function write_over($filename,$data,$method="rb+",$iflock=1,$check=1,$chmod=1){

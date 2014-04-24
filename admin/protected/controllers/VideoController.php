@@ -27,21 +27,6 @@ class VideoController extends Controller {
         );
     }
 
-	public function actionFlag($video_id=0) {
-		$success = 0;
-		if (intval($video_id)>0) {
-			$ret = Yii::app()->db->createCommand()->update('tbl_video', array('flag'=>2), 'id='.intval($id));
-			$success = 1;
-			$msg = "$ret row(s) affected";
-		}
-		else {
-			$msg = "invalid video_id";
-		}
-		echo json_encode(array(
-			'success' => $success,
-			'message' => $msg,
-		));
-	}
 
     public function actionView($id) {
         $this->render('view', array(
@@ -57,7 +42,7 @@ class VideoController extends Controller {
         if (isset($_POST['Video'])) {
             $model->attributes = $_POST['Video'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->video_id));
+                $this->redirect(array('view', 'id' => $model->id));
         }
 
         $this->render('create', array(
@@ -73,7 +58,7 @@ class VideoController extends Controller {
         if (isset($_POST['Video'])) {
             $model->attributes = $_POST['Video'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->video_id));
+                $this->redirect(array('view', 'id' => $model->id));
         }
 
         $this->render('update', array(
