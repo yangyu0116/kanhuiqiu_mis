@@ -8,7 +8,7 @@ class NbavideoSpider(BaseSpider):
     name = "nbavideo"
     allowed_domains = ["sina.com","sina.com.cn"]
     start_urls = [
-        "http://api.roll.news.sina.com.cn/zt_list?channel=sports&cat_3=video&cat_1=lq-nba&tag=1&show_ext=1&show_all=1&show_cat=1&format=json&show_num=4000",
+        "http://api.roll.news.sina.com.cn/zt_list?channel=sports&cat_3=video&cat_1=lq-nba&tag=1&show_ext=1&show_all=1&show_cat=1&format=json&show_num=20",
     ]
 
     def parse(self, response):
