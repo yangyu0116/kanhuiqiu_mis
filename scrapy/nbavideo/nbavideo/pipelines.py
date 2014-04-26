@@ -45,8 +45,8 @@ class NbavideoPipeline(object):
     def _conditional_insert(self, tx, item):
         if item.get('title'):
             tx.execute(\
-                "insert into tbl_video (title,type,url,urlmd5,pic,createtime,addtime,site)"
-                "values (%s,%s,%s,%s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE addtime=addtime",
+                "insert into tbl_video (title,type,url,urlmd5,pic,createtime,addtime,site,source_id)"
+                "values (%s,%s,%s,%s,%s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE addtime=addtime",
                 (
 				item['title'],
 				item['type'],
@@ -55,7 +55,8 @@ class NbavideoPipeline(object):
 				item['pic'],
 				item['createtime'],
 				item['addtime'],
-				item['site']
+				item['site'],
+				item['source_id']
 				)
             )
 

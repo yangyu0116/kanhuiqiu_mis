@@ -14,3 +14,4 @@ class NbavideoItem(Item):
     createtime = Field()
     addtime = Field()
     site = Field()
+    source_id = Field()

@@ -8,7 +8,7 @@ class NbavideoSpider(BaseSpider):
     name = "nbavideo"
     allowed_domains = ["sina.com","sina.com.cn"]
     start_urls = [
-        "http://api.roll.news.sina.com.cn/zt_list?channel=sports&cat_3=video&cat_1=lq-nba&tag=1&show_ext=1&show_all=1&show_cat=1&format=json&show_num=3000",
+        "http://api.roll.news.sina.com.cn/zt_list?channel=sports&cat_3=video&cat_1=lq-nba&tag=1&show_ext=1&show_all=1&show_cat=1&format=json&show_num=4000",
     ]
 
     def parse(self, response):
@@ -36,6 +36,7 @@ class NbavideoSpider(BaseSpider):
 			item['createtime'] = video['createtime']
 			item['addtime'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
 			item['site'] = 'sina.com.cn'
+            item['source_id'] = video['ext1']
 
 			items.append(item)
         items.reverse()
