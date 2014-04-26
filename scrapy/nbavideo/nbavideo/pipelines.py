@@ -18,8 +18,8 @@ class NbavideoPipeline(object):
     def __init__(self):
         self.db = adbapi.ConnectionPool('MySQLdb',
             db = 'kanhuiqiu',
-            user = 'root',
-            passwd = 'root',
+            user = 'video',
+            passwd = 'video',
             cursorclass = MySQLdb.cursors.DictCursor,
             charset = 'utf8',
             use_unicode = True
