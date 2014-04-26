@@ -36,7 +36,7 @@ class NbavideoSpider(BaseSpider):
 			item['createtime'] = video['createtime']
 			item['addtime'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
 			item['site'] = 'sina.com.cn'
-            item['source_id'] = video['ext1']
+			item['source_id'] = video['ext1']
 
 			items.append(item)
         items.reverse()
