@@ -1,0 +1,3 @@
+	RewriteEngine On
+		RewriteRule ^/static/(.*) /static/$1	[L]
+		RewriteRule ^/(.*) /index.php$0	[L]

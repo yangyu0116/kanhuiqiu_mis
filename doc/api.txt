@@ -1,0 +1,7 @@
+http://api.roll.news.sina.com.cn/zt_list?channel=sports&cat_3=video&cat_1=lq-nba&tag=1&show_ext=1&show_all=1&show_cat=1&format=json&show_num=10
+http://api.roll.news.sina.com.cn/zt_list?channel=sports&cat_3==uclvideo||=video&cat_4==football||=football-xg||=football-hx&tag=1&show_ext=1&show_all=1&show_cat=1&format=json&show_num=20
+
+http://api.sina.com.cn/dagger.php?p=xml&s=video&a=videoInfoForBaidu&url=http://video.sina.com.cn/p/sports/k/v/2014-04-25/083163784893.html
+
+
+
